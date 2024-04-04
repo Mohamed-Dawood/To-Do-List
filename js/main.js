@@ -13,10 +13,15 @@ if (localStorage.getItem("lists")) {
 
 addBtn.addEventListener("click", addToList);
 
+// add update on key down
 taskInput.addEventListener("keydown", function (event) {
   if (event.keyCode === 13) {
     event.preventDefault();
-    addToList();
+    if (updateBtn.classList.contains("d-none")) {
+      addToList();
+    } else {
+      updateToDoList();
+    }
   }
 });
 function addToList() {
