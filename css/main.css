@@ -102,6 +102,7 @@ body {
   margin: 40px auto;
   background-color: #fff;
   border-radius: 10px;
+  display: none;
 }
 
 .tasks ul {
