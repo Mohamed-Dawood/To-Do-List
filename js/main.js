@@ -2,6 +2,7 @@ const taskInput = document.getElementById("inputTask");
 const addBtn = document.getElementById("addBtn");
 const updateBtn = document.getElementById("updateBtn");
 const tasks = document.querySelector(".tasks");
+const clearAllBtn = document.getElementById("clearAll");
 
 let listContainer = [];
 
@@ -12,6 +13,11 @@ if (localStorage.getItem("lists")) {
 
 addBtn.addEventListener("click", addToList);
 
+taskInput.addEventListener("keydown", function (event) {
+  if (event.keyCode === 13) {
+    addToList();
+  }
+});
 function addToList() {
   let taskValue = taskInput.value.trim();
   if (taskValue !== "") {
@@ -88,3 +94,9 @@ function toggle(index) {
   localStorage.setItem("lists", JSON.stringify(listContainer));
   displayList();
 }
+
+clearAllBtn.addEventListener("click", function () {
+  listContainer = [];
+  localStorage.removeItem("lists");
+  displayList();
+});
