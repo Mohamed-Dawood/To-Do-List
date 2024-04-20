@@ -66,6 +66,13 @@ function displayList() {
   } else {
     tasks.style.display = "none";
   }
+
+  // display clear all button
+  if (listContainer.length > 1) {
+    clearAllBtn.style.display = "block";
+  } else {
+    clearAllBtn.style.display = "none";
+  }
 }
 
 function removeToDoList(index) {
@@ -100,7 +107,9 @@ function toggle(index) {
   localStorage.setItem("lists", JSON.stringify(listContainer));
   displayList();
 }
-
+if (listContainer.length > 1) {
+  clearAllBtn.style.display = "block";
+}
 clearAllBtn.addEventListener("click", function () {
   listContainer = [];
   localStorage.removeItem("lists");

@@ -120,7 +120,7 @@ body {
 .tasks #clearAll {
   text-align: center;
   background-color: var(--main-color);
-  display: block;
+  display: none;
   margin: auto;
   color: white;
   padding: 10px;
@@ -142,6 +142,7 @@ body {
   margin: 10px 0;
   display: inherit;
   justify-content: space-between;
+  align-items: center;
   width: 80%;
   padding: 16px;
   border: 2px solid var(--main-color);
@@ -158,6 +159,12 @@ body {
 section {
   user-select: none;
   text-transform: capitalize;
+  text-align: center;
+  line-height: 1.5;
+  padding: 0 10px;
+}
+.buttons {
+  display: flex;
 }
 .fa-circle,
 .fa-circle-check {
