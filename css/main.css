@@ -130,6 +130,20 @@ body {
   text-transform: capitalize;
   cursor: pointer;
 }
+.numTask {
+  text-align: center;
+  padding-bottom: 15px;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  align-items: center;
+}
+.numTask p {
+  padding: 10px;
+}
+.numTask p span {
+  color: var(--main-color);
+}
 .tasks ul {
   padding: 20px;
   display: flex;

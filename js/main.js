@@ -3,6 +3,7 @@ const addBtn = document.getElementById("addBtn");
 const updateBtn = document.getElementById("updateBtn");
 const tasks = document.querySelector(".tasks");
 const clearAllBtn = document.getElementById("clearAll");
+const numTask = document.querySelector(".numTask");
 
 let listContainer = [];
 
@@ -42,9 +43,17 @@ function addToList() {
 }
 
 function displayList() {
+  let completedTasks = 0;
+  let notCompletedTasks = 0;
+
   let m = "";
   for (let i = 0; i < listContainer.length; i++) {
     const item = listContainer[i];
+    if (item.completed) {
+      completedTasks++;
+    } else {
+      notCompletedTasks++;
+    }
     m += `<li class="li-${i}">
         <span id="span-${i}" class="${
       item.completed ? "fa-solid fa-circle-check" : "fa-regular fa-circle"
@@ -73,6 +82,8 @@ function displayList() {
   } else {
     clearAllBtn.style.display = "none";
   }
+
+  numTask.innerHTML = `<p>Number of Tasks [${listContainer.length}]</p> <p>Completed (<span>${completedTasks}</span>)</p> <p>Pending:${notCompletedTasks}</p>`;
 }
 
 function removeToDoList(index) {
@@ -106,9 +117,6 @@ function toggle(index) {
   listContainer[index].completed = !listContainer[index].completed;
   localStorage.setItem("lists", JSON.stringify(listContainer));
   displayList();
-}
-if (listContainer.length > 1) {
-  clearAllBtn.style.display = "block";
 }
 clearAllBtn.addEventListener("click", function () {
   listContainer = [];
